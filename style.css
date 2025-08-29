@@ -1,0 +1,192 @@
+/* Basic Setup & Fonts */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header and Navigation */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #5d3a8e; /* A nice purple color */
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/459791/pexels-photo-459791.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #5d3a8e;
+    color: white;
+    padding: 12px 24px;
+    margin-top: 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* General Content Sections */
+.content-section {
+    padding: 4rem 5%;
+    text-align: center;
+}
+
+.content-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #5d3a8e;
+}
+
+/* Course Cards */
+.course-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap; /* Allows cards to stack on smaller screens */
+}
+
+.course-card {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    flex-basis: 400px; /* Max width for each card */
+}
+
+/* Booking Form */
+.booking-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.booking-form button {
+    background-color: #5d3a8e;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 3rem 5%;
+}
+
+footer a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    nav ul {
+        display: none; /* Simple hiding for mobile, can be improved with a burger menu later */
+    }
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* Styling for the new Payment Page */
+.payment-section {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.payment-details {
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.payment-details .amount {
+    color: #5d3a8e;
+    font-size: 2rem;
+}
+
+.qr-code {
+    max-width: 250px;
+    margin: 1rem 0;
+}
+
+.upi-id {
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+.whatsapp-button {
+    background-color: #25D366; /* WhatsApp Green */
+}

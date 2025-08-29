@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anjum Institute - Professional Skill Training</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#" class="logo">Anjum Institute</a>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Learn Practical Skills, Build Your Future</h1>
+                <p class="tagline">Expert training in Tailoring and Mehendi Art.</p>
+                <a href="#booking" class="cta-button">Book a Class Today</a>
+            </div>
+        </section>
+
+        <section id="about" class="content-section">
+            <h2>About Anjum Institute</h2>
+            <p>Our mission is to empower individuals with creative and professional skills that open doors to new opportunities. We offer hands-on training in a supportive and friendly environment, ensuring every student masters their chosen craft.</p>
+        </section>
+        
+        <section id="courses" class="content-section">
+            <h2>Our Courses</h2>
+            <div class="course-container">
+                <div class="course-card">
+                    <h3>Comprehensive Tailoring 🧵</h3>
+                    <p>From basic stitches to designing and creating your own outfits. We cover everything from traditional wear to modern fashion. Course duration: 3 months.</p>
+                </div>
+                <div class="course-card">
+                    <h3>Professional Mehendi Art 🎨</h3>
+                    <p>Learn all types of Mehendi design, including bridal, Arabic, and Indo-Western styles. Master cone-making and application techniques. Course duration: 1 month.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="booking" class="content-section">
+            <h2>Book Your Class</h2>
+            <form id="booking-form" name="booking-form" class="booking-form">
+                <input type="text" name="Name" placeholder="Your Full Name" required>
+                <input type="tel" name="Phone" placeholder="Your WhatsApp Number" required>
+                
+                <select name="Course" id="course-select" required>
+                    <option value="" disabled selected>Select a Course</option>
+                    <option value="Tailoring" data-fee="2000">Tailoring (Monthly Fee: ₹2000)</option>
+                    <option value="Mehendi" data-fee="1500">Mehendi (Monthly Fee: ₹1500)</option>
+                </select>
+                
+                <select name="PreferredTime" required>
+                    <option value="" disabled selected>Select Preferred Time</option>
+                    <option value="Morning (10am-12pm)">Morning (10am-12pm)</option>
+                    <option value="Afternoon (2pm-4pm)">Afternoon (2pm-4pm)</option>
+                </select>
+                <button type="submit">Save My Spot & Proceed to Pay</button>
+            </form>
+            <p id="form-message" style="display:none; margin-top: 15px;">Saving your details...</p>
+        </section>
+
+        <section id="gallery" class="content-section">
+            <h2>Student Work Gallery</h2>
+            <p>Here you can add images of student projects!</p>
+            </section>
+
+    </main>
+
+    <footer id="contact">
+        <h2>Contact Us</h2>
+        <p>123 Skill Street, City Name, India</p>
+        <p>Email: <a href="mailto:info@anjuminstitute.com">info@anjuminstitute.com</a></p>
+        <p>Phone: <a href="tel:+911234567890">+91 12345 67890</a></p>
+        <div class="social-links">
+            <a href="#">WhatsApp</a> | 
+            <a href="#">Instagram</a> | 
+            <a href="#">Facebook</a>
+        </div>
+        </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

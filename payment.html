@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Your Enrollment - Anjum Institute</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Anjum Institute</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section payment-section">
+            <h2>Confirm Your Enrollment</h2>
+            <p>Your spot is reserved! To confirm it, please pay the 40% enrollment fee.</p>
+
+            <div class="payment-details">
+                <h3>Course: <span id="course-name">Loading...</span></h3>
+                <h3 class="amount">Enrollment Fee: ₹<span id="enrollment-fee">0</span></h3>
+                
+                <p><strong>Scan the QR code below using any UPI app (GPay, PhonePe, Paytm, etc.)</strong></p>
+                
+                <img src="qr-code.png" alt="Anjum Institute UPI QR Code" class="qr-code">
+                
+                <p>Or pay directly to our UPI ID:</p>
+                <p class="upi-id"><strong>kashif.rezarahs2004@oksbi</strong></p>
+                
+                <hr>
+                
+                <h3>✅ Final Step: Must Do!</h3>
+                <p>After paying, please send a screenshot of the payment confirmation to our WhatsApp.</p>
+                <a href="https://wa.me/917980368646" target="_blank" class="cta-button whatsapp-button">Send Screenshot on WhatsApp</a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // This script reads the course name and fee from the URL and displays them.
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const course = params.get('course');
+            const fee = params.get('fee');
+
+            if (course && fee) {
+                document.getElementById('course-name').textContent = course;
+                document.getElementById('enrollment-fee').textContent = fee;
+            } else {
+                document.getElementById('course-name').textContent = 'N/A';
+                document.getElementById('enrollment-fee').textContent = 'N/A';
+            }
+        };
+    </script>
+</body>
+</html>
