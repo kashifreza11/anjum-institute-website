@@ -3,7 +3,7 @@
 const form = document.getElementById('booking-form');
 const courseSelect = document.getElementById('course-select');
 const formMessage = document.getElementById('form-message');
-const scriptURL = "https://script.google.com/macros/s/AKfycbyKqUxUb4_P8oayBZiOO3sBJMPfTTf8vbv2FDLbMfASPNUnBFvwzfSvLNcGJHJNxHrwdA/exec"; // PASTE YOUR GOOGLE SCRIPT URL HERE
+const scriptURL = https://script.google.com/macros/s/AKfycbyKqUxUb4_P8oayBZiOO3sBJMPfTTf8vbv2FDLbMfASPNUnBFvwzfSvLNcGJHJNxHrwdA/exec; // PASTE YOUR GOOGLE SCRIPT URL HERE
 
 form.addEventListener('submit', e => {
     e.preventDefault(); // Prevents the page from reloading
