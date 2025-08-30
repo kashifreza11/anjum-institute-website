@@ -36,3 +36,67 @@ form.addEventListener('submit', e => {
             formMessage.style.display = 'none';
         });
 });
+// --- Testimonial Slider Logic ---
+
+// This function runs when the whole page is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.testimonial-slide');
+    if (slides.length > 0) {
+        let currentSlideIndex = 0;
+        
+        // Show the first slide initially
+        slides[currentSlideIndex].classList.add('active');
+
+        function showNextSlide() {
+            // Hide the current slide
+            slides[currentSlideIndex].classList.remove('active');
+            
+            // Move to the next slide index
+            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+            
+            // Show the new slide
+            slides[currentSlideIndex].classList.add('active');
+        }
+        
+        // Change slide every 5 seconds (5000 milliseconds)
+        setInterval(showNextSlide, 5000);
+    }
+});
+// --- Theme Switcher Logic ---
+
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Function to set the theme and icon
+    function setTheme(theme) {
+        if (theme === 'dark') {
+            body.classList.add('dark-theme');
+            themeToggle.textContent = '🌙'; // Set icon to moon
+            localStorage.setItem('theme', 'dark');
+        } else {
+            body.classList.remove('dark-theme');
+            themeToggle.textContent = '☀️'; // Set icon to sun
+            localStorage.setItem('theme', 'light');
+        }
+    }
+
+    // Check for saved theme in localStorage and apply it
+    const savedTheme = localStorage.getItem('theme');
+    // If there's a saved theme, use it. Otherwise, default to light.
+    if (savedTheme) {
+        setTheme(savedTheme);
+    } else {
+        setTheme('light');
+    }
+
+    // Add click event listener to the button
+    themeToggle.addEventListener('click', () => {
+        // If dark theme is currently on, switch to light, and vice-versa
+        if (body.classList.contains('dark-theme')) {
+            setTheme('light');
+        } else {
+            setTheme('dark');
+        }
+    });
+});

@@ -1,0 +1,292 @@
+/* Step 1: Define Color Variables for Light and Dark Themes */
+:root {
+    --primary-color: #5d3a8e;
+    --primary-color-darker: #4a2d70;
+    --background-color: #ffffff;
+    --text-color: #333333;
+    --card-background: #f9f9f9;
+    --header-background: #ffffff;
+    --footer-background: #333333;
+    --footer-text: #dddddd;
+    --border-color: #dddddd;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --button-text-color: #ffffff;
+}
+
+body.dark-theme {
+    --primary-color: #9b72cf;
+    --primary-color-darker: #835fb7;
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --card-background: #1e1e1e;
+    --header-background: #1e1e1e;
+    --footer-background: #1e1e1e;
+    --footer-text: #aaaaaa;
+    --border-color: #444444;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --button-text-color: #121212;
+}
+
+
+/* Step 2: Apply Variables to Your Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Header and Navigation */
+header {
+    background-color: var(--header-background);
+    box-shadow: 0 2px 5px var(--shadow-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+}
+
+nav .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+/* Theme Toggle Button Styles */
+.theme-toggle-button {
+    background: none;
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 5px 8px;
+    margin-right: 1rem;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+.theme-toggle-button:hover {
+    background-color: var(--card-background);
+}
+
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/459791/pexels-photo-459791.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff; /* This text is on an image, so it can stay white */
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+    padding: 12px 24px;
+    margin-top: 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+}
+.cta-button:hover {
+    background-color: var(--primary-color-darker);
+}
+
+/* General Content Sections */
+.content-section {
+    padding: 4rem 5%;
+    text-align: center;
+}
+
+.content-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+/* Course Cards */
+.course-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.course-card {
+    background: var(--card-background);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    flex-basis: 400px;
+    transition: background-color 0.3s;
+}
+
+/* Booking Form */
+.booking-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    font-size: 1rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.booking-form button {
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+.booking-form button:hover {
+    background-color: var(--primary-color-darker);
+}
+
+/* Footer */
+footer {
+    background-color: var(--footer-background);
+    color: var(--footer-text);
+    text-align: center;
+    padding: 3rem 5%;
+    transition: background-color 0.3s;
+}
+
+footer a {
+    color: var(--footer-text);
+    text-decoration: none;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* Payment Page */
+.payment-section {
+    max-width: 700px;
+    margin: 2rem auto;
+    background: var(--card-background);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+.payment-details .amount {
+    color: var(--primary-color);
+    font-size: 2rem;
+}
+.upi-id {
+    background-color: var(--background-color);
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+/* Gallery & Testimonials */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.gallery-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.map-container {
+    margin-top: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.map-container iframe {
+    width: 100%;
+    height: 350px;
+    filter: invert(var(--map-invert, 0)); /* Invert map colors in dark mode */
+}
+body.dark-theme {
+    --map-invert: 1;
+}
+
+.testimonial-slider-container {
+    max-width: 800px;
+    height: 450px;
+    margin: 2rem auto 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+.testimonial-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.testimonial-slide.active {
+    opacity: 1;
+}
+.testimonial-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: var(--card-background);
+}
