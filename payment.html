@@ -27,7 +27,7 @@
                 
                 <p><strong>Scan the QR code below using any UPI app (GPay, PhonePe, Paytm, etc.)</strong></p>
                 
-                <img src="qr-code.png" alt="Anjum Institute UPI QR Code" class="qr-code">
+                <div id="qrcode" class="qr-code"></div>
                 
                 <p>Or pay directly to our UPI ID:</p>
                 <p class="upi-id"><strong>kashif.rezarahs2004@oksbi</strong></p>
@@ -40,22 +40,50 @@
             </div>
         </section>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 
     <script>
-        // This script reads the course name and fee from the URL and displays them.
-        window.onload = function() {
-            const params = new URLSearchParams(window.location.search);
-            const course = params.get('course');
-            const fee = params.get('fee');
-
-            if (course && fee) {
-                document.getElementById('course-name').textContent = course;
-                document.getElementById('enrollment-fee').textContent = fee;
-            } else {
-                document.getElementById('course-name').textContent = 'N/A';
-                document.getElementById('enrollment-fee').textContent = 'N/A';
-            }
-        };
+        // We will replace this script in the next step
     </script>
+</body>
+</html>
+
+   <script>
+    window.onload = function() {
+        const params = new URLSearchParams(window.location.search);
+        const course = params.get('course');
+        const fee = params.get('fee');
+
+        // --- ACTION: Update your details here ---
+        const yourUpiId = "your-institute-upi-id@okhdfcbank";
+        const yourName = "Anjum Institute";
+        // -----------------------------------------
+
+        if (course && fee) {
+            // Display the course and fee on the page
+            document.getElementById('course-name').textContent = course;
+            document.getElementById('enrollment-fee').textContent = fee;
+
+            // Construct the UPI payment string
+            const transactionNote = `Enrollment for ${course}`;
+            const upiString = `upi://pay?pa=${yourUpiId}&pn=${encodeURIComponent(yourName)}&am=${fee}&cu=INR&tn=${encodeURIComponent(transactionNote)}`;
+            
+            // Generate the QR Code
+            new QRCode(document.getElementById("qrcode"), {
+                text: upiString,
+                width: 220,
+                height: 220,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+        } else {
+            document.getElementById('course-name').textContent = 'Error';
+            document.getElementById('enrollment-fee').textContent = 'N/A';
+            document.getElementById("qrcode").innerHTML = "Payment details not found. Please go back and book again.";
+        }
+    };
+</script>
 </body>
 </html>
