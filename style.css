@@ -1,20 +1,53 @@
-/* Basic Setup & Fonts */
+/* Step 1: Define Color Variables for Light and Dark Themes */
+:root {
+    --primary-color: #5d3a8e;
+    --primary-color-darker: #4a2d70;
+    --background-color: #ffffff;
+    --text-color: #333333;
+    --card-background: #f9f9f9;
+    --header-background: #ffffff;
+    --footer-background: #333333;
+    --footer-text: #dddddd;
+    --border-color: #dddddd;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --button-text-color: #ffffff;
+}
+
+body.dark-theme {
+    --primary-color: #9b72cf;
+    --primary-color-darker: #835fb7;
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --card-background: #1e1e1e;
+    --header-background: #1e1e1e;
+    --footer-background: #1e1e1e;
+    --footer-text: #aaaaaa;
+    --border-color: #444444;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --button-text-color: #121212;
+}
+
+
+/* Step 2: Apply Variables to Your Styles */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--text-color);
     line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 /* Header and Navigation */
 header {
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: var(--header-background);
+    box-shadow: 0 2px 5px var(--shadow-color);
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: background-color 0.3s;
 }
 
 nav {
@@ -25,23 +58,41 @@ nav {
 }
 
 nav .logo {
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
-    color: #5d3a8e; /* A nice purple color */
+    color: var(--primary-color);
     text-decoration: none;
 }
 
 nav ul {
     list-style: none;
     display: flex;
+    align-items: center;
     gap: 2rem;
 }
 
 nav a {
     text-decoration: none;
-    color: #333;
+    color: var(--text-color);
     font-weight: 600;
 }
+
+/* Theme Toggle Button Styles */
+.theme-toggle-button {
+    background: none;
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 5px 8px;
+    margin-right: 1rem;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+.theme-toggle-button:hover {
+    background-color: var(--card-background);
+}
+
 
 /* Hero Section */
 .hero {
@@ -51,7 +102,7 @@ nav a {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
+    color: #ffffff; /* This text is on an image, so it can stay white */
 }
 
 .hero-text h1 {
@@ -66,13 +117,16 @@ nav a {
 
 .cta-button {
     display: inline-block;
-    background-color: #5d3a8e;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
     padding: 12px 24px;
     margin-top: 1.5rem;
     border-radius: 5px;
     text-decoration: none;
     font-weight: 600;
+}
+.cta-button:hover {
+    background-color: var(--primary-color-darker);
 }
 
 /* General Content Sections */
@@ -84,7 +138,7 @@ nav a {
 .content-section h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: #5d3a8e;
+    color: var(--primary-color);
 }
 
 /* Course Cards */
@@ -92,15 +146,16 @@ nav a {
     display: flex;
     justify-content: center;
     gap: 2rem;
-    flex-wrap: wrap; /* Allows cards to stack on smaller screens */
+    flex-wrap: wrap;
 }
 
 .course-card {
-    background: #f9f9f9;
+    background: var(--card-background);
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    flex-basis: 400px; /* Max width for each card */
+    box-shadow: 0 4px 10px var(--shadow-color);
+    flex-basis: 400px;
+    transition: background-color 0.3s;
 }
 
 /* Booking Form */
@@ -117,104 +172,121 @@ nav a {
     width: 100%;
     padding: 12px;
     border-radius: 5px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     font-size: 1rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 .booking-form button {
-    background-color: #5d3a8e;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
     border: none;
     cursor: pointer;
     font-weight: 600;
 }
+.booking-form button:hover {
+    background-color: var(--primary-color-darker);
+}
 
 /* Footer */
 footer {
-    background-color: #333;
-    color: white;
+    background-color: var(--footer-background);
+    color: var(--footer-text);
     text-align: center;
     padding: 3rem 5%;
+    transition: background-color 0.3s;
 }
 
 footer a {
-    color: #ddd;
+    color: var(--footer-text);
     text-decoration: none;
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     nav ul {
-        display: none; /* Simple hiding for mobile, can be improved with a burger menu later */
+        display: none;
     }
     .hero-text h1 {
         font-size: 2.2rem;
     }
 }
 
-/* Styling for the new Payment Page */
+/* Payment Page */
 .payment-section {
     max-width: 700px;
-    margin: 0 auto;
-    background: #f9f9f9;
+    margin: 2rem auto;
+    background: var(--card-background);
     border-radius: 8px;
     padding: 2rem;
+    box-shadow: 0 4px 10px var(--shadow-color);
 }
-
-.payment-details {
-    text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 2rem;
-    margin-top: 2rem;
-}
-
 .payment-details .amount {
-    color: #5d3a8e;
+    color: var(--primary-color);
     font-size: 2rem;
 }
-
-.qr-code {
-    max-width: 250px;
-    margin: 1rem 0;
-}
-
 .upi-id {
-    background-color: #eee;
+    background-color: var(--background-color);
     padding: 10px;
     border-radius: 5px;
     display: inline-block;
     margin-top: 0.5rem;
 }
 
-.whatsapp-button {
-    background-color: #25D366; /* WhatsApp Green */
-}
-
-/* Gallery Grid Styles */
+/* Gallery & Testimonials */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
     margin-top: 2rem;
 }
-
 .gallery-grid img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px var(--shadow-color);
 }
 
-/* Google Map Container Styles */
 .map-container {
     margin-top: 2rem;
     border-radius: 8px;
-    overflow: hidden; /* This makes the map respect the border-radius */
+    overflow: hidden;
+}
+.map-container iframe {
+    width: 100%;
+    height: 350px;
+    filter: invert(var(--map-invert, 0)); /* Invert map colors in dark mode */
+}
+body.dark-theme {
+    --map-invert: 1;
 }
 
-.map-container iframe {
-    width: 100%; /* This makes the map responsive */
-    height: 350px;
+.testimonial-slider-container {
+    max-width: 800px;
+    height: 450px;
+    margin: 2rem auto 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+.testimonial-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.testimonial-slide.active {
+    opacity: 1;
+}
+.testimonial-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: var(--card-background);
 }
